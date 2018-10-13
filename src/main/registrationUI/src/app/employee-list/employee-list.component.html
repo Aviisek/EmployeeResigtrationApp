@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-10">
+      <table *ngIf="employees?.length >0 ; else noClients" class="table table-striped">
+        <thead class="thead-inverse">
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Date Of Birth</th>
+            <th>Department</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                    <td>{{ employee.firstName }}</td>
+                    <td>{{ employee.lastName }}</td>
+                    <td>{{ employee.gender }}</td>
+                    <td>{{ employee.dateOfBirth }}</td>
+                    <td>{{ employee.department | uppercase}}</td>
+            </tr>
+          
+        </tbody>
+      </table>
+      
+      <ng-template #noClients>
+        <hr>
+        <h5>There are no registered employees</h5>
+      </ng-template>
+    </div>
+  
+    <div class="col-md-2">
+      <app-sidebar></app-sidebar>
+    </div>
+  
+  </div>
+  
+  
